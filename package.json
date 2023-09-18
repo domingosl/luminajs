@@ -1,0 +1,24 @@
+{
+  "name": "luminajs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Domingo Lupo",
+  "license": "ISC",
+  "dependencies": {
+    "app-root-path": "^3.1.0",
+    "body-parser": "^1.20.2",
+    "chalk": "^5.3.0",
+    "express": "^4.18.2",
+    "joi": "^17.10.0",
+    "morgan": "^1.10.0",
+    "rate-limiter-flexible": "^3.0.0",
+    "winston": "^3.10.0",
+    "winston-daily-rotate-file": "^4.7.1"
+  }
+}
