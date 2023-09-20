@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors';
 import bodyParser from 'body-parser';
 import BaseMiddleware from "./middlewares/base.js";
 import AuthMiddleware from "./middlewares/auth/index.js";
@@ -12,6 +13,7 @@ const tagLabel = 'luminaServer';
 
 const configSchema = Joi.object({
     port: Joi.number().default(3000),
+    cors: Joi.bool().default(true),
     debug: Joi.bool().default(false),
     logsRootDirectory: Joi.string().default(appRoot.path),
     requestBodyMaxSize: Joi.string().default('100kb'),
@@ -59,6 +61,8 @@ export default class Server {
         this.expressApp.use(bodyParser.json({
             limit: this.options.requestBodyMaxSize
         }));
+
+        this.options.cors && this.expressApp.use(cors());
 
 
         this.expressApp.use(loggers.getHttpStream());
