@@ -66,7 +66,14 @@ class Endpoint {
                 const logger = Endpoint.contextualizedLogger(me);
                 logger.debug('Started');
 
-                await fn({req, body: req.body, resolve: res.resolve, forbidden: res.forbidden, logger});
+                await fn({
+                    req,
+                    res,
+                    body: req.body,
+                    resolve: res.resolve,
+                    forbidden: res.forbidden,
+                    badRequest: res.badRequest,
+                    logger});
 
                 logger.debug('Done', { requestTime: req.locals.requestTime });
 
